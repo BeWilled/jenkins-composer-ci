@@ -1,6 +1,6 @@
 FROM jenkins
 LABEL maintainer="Michel Behlok"
-RUN curl https://sdk.cloud.google.com >> installer.sh
+RUN curl "https://sdk.cloud.google.com" >> installer.sh
 RUN chmod +x installer.sh
 RUN ./installer.sh --disable-prompts
 RUN apt-get update && apt-get install -y php php7.0-mbstring php7.0-zip php7.0-xml php-curl
