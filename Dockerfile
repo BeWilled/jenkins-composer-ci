@@ -12,4 +12,6 @@ RUN php -r "unlink('composer-setup.php');"
 RUN cd /etc && rm localtime && ln -s /usr/share/zoneinfo/America/Bogota localtime
 RUN ln -s /var/jenkins_home/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud
 RUN ln -s /var/jenkins_home/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil
-USER jenkins:jenkins
+RUN groupadd docker \
+    && usermod -aG docker,staff jenkins
+USER jenkins
