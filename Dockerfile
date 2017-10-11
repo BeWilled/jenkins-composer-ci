@@ -1,6 +1,7 @@
 FROM jenkins
 LABEL maintainer="Michel Behlok"
 USER root:root
+RUN chown -R jenkins /usr/share/jenkins
 RUN curl "https://sdk.cloud.google.com" >> installer.sh
 RUN chmod +x installer.sh
 RUN ./installer.sh --disable-prompts
